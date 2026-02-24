@@ -56,6 +56,26 @@ st.dataframe(stats_proyecto, use_container_width=True)
 # 3. GRÁFICO DE GANTT (PLOTLY)
 st.header("📅 Cronograma")
 
+# --- NUEVA SECCIÓN: TABLA DETALLADA ---
+st.subheader("📋 Detalle de Tareas (Parent & Child)")
+
+# Reordenamos las columnas para que se vea exactamente lo que pediste
+columnas_visibles = [
+    "Fase", # Parent Task
+    "Tarea", # Child Task / Subtarea
+    "Responsable", 
+    "Inicio", # Start date (crucial para tareas independientes)
+    "Fin", 
+    "Horas_Estimadas", 
+    "Dias_Duracion", 
+    "Dependencia", 
+    "Estado"
+]
+
+# Mostramos la tabla completa en Streamlit
+st.dataframe(df[columnas_visibles], use_container_width=True)
+# ----------------------------------------
+
 # Crear el gráfico base
 fig = px.timeline(
     df, 
