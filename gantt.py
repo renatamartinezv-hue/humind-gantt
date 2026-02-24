@@ -81,9 +81,9 @@ fig = px.timeline(
 fig.update_yaxes(autorange="reversed")
 
 # Agregar línea del "Día de Hoy"
+# Agregar línea del "Día de Hoy"
 hoy = datetime.now().strftime("%Y-%m-%d %H:%M")
-fig.add_vline(x=hoy, line_width=2, line_dash="dash", line_color="red", 
-              annotation_text="Hoy", annotation_position="top left")
+fig.add_vline(x=hoy, line_width=2, line_dash="dash", line_color="red")
 
 # Agregar hitos (Milestones) para tareas completadas
 completadas = df[df["Estado"] == "Completado"]
